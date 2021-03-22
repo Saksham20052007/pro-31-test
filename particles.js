@@ -1,5 +1,5 @@
 class particle {
-    constructor(x, y ,r){
+    constructor(x, y ){
         var options={
             restitution:0.5,
              density:1.2,
@@ -8,8 +8,7 @@ class particle {
 
         this.x=x;
         this.y=y;
-        this.r=r;
-        this.body = Bodies.circle(this.x, this.y, this.r, options )
+        this.body = Bodies.circle(this.x, this.y, 25, options )
 
         World.add(world,this.body); 
 
@@ -21,8 +20,10 @@ class particle {
         push()
         translate(ballPos.x ,ballPos.y);
         rotate(this.body.angle);
-        rectMode(CENTER);
-        rect( 0, 0, this.r*2, this.r*2);
+        fill( "white");
+
+        ellipseMode(CENTER);
+        ellipse( 0, 0, 25, 25);
         pop();
 
 

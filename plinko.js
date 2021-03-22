@@ -1,5 +1,5 @@
 class plinko {
-    constructor(x, y ,r){
+    constructor(x, y ){
         var options={
             restitution:0.5,
              density:1.2,
@@ -8,8 +8,7 @@ class plinko {
 
         this.x=x;
         this.y=y;
-        this.r=r;
-        this.body = Bodies.circle(this.x, this.y, this.r, options )
+        this.body = Bodies.circle(this.x, this.y, 255, options )
         this.color = color(random(0, 255), random(0, 255), random(0, 255));
         World.add(world,this.body); 
 
@@ -21,8 +20,10 @@ class plinko {
         push()
         translate(ballPos.x ,ballPos.y);
         rotate(this.body.angle);
-        rectMode(CENTER);
-        rect( 0, 0, this.r*2, this.r*2);
+        fill(random(0, 255), random(0, 255), random(0, 255));
+
+        ellipseMode(CENTER);
+        ellipse( 0, 0, 25);
         pop();
 
 
