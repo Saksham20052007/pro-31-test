@@ -1,31 +1,29 @@
-class plinko {
-    constructor(x, y ){
-        var options={
-            restitution:0.5,
-             density:1.2,
-            isStatic:false   
-        } 
+class Plinko {
+    constructor(x, y) {
+        var options = {
+            restitution: 1,
+            friction: 0,
+            isStatic: true
+        }
+        this.r = 10;
+        this.body = Bodies.circle(x, y, this.r, options);
 
-        this.x=x;
-        this.y=y;
-        this.body = Bodies.circle(this.x, this.y, 255, options )
-        this.color = color(random(0, 255), random(0, 255), random(0, 255));
-        World.add(world,this.body); 
-
-        
+        World.add(world, this.body);
     }
-    display(){
-        var ballPos = this.body.position;
+    display() {
 
-        push()
-        translate(ballPos.x ,ballPos.y);
-        rotate(this.body.angle);
-        fill(random(0, 255), random(0, 255), random(0, 255));
+        var pos = this.body.position;
+        var angle = this.body.angle;
 
-        ellipseMode(CENTER);
-        ellipse( 0, 0, 25);
+        push();
+        translate(pos.x, pos.y);
+        rotate(angle);
+        imageMode(CENTER);
+        noStroke();
+        fill("white");
+        ellipseMode(RADIUS);
+        ellipse(0, 0, this.r, this.r);
         pop();
-
-
     }
-}
+
+};
