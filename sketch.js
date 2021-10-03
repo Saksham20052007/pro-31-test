@@ -55,4 +55,3 @@ function draw() {
 
     divisions[k].display();
   }
-}
